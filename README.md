@@ -2,9 +2,9 @@
 
 ## VS Code everest-fanyi
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/maqi1520.rematch-snippets.svg)](https://vsmarketplacebadge.apphb.com/version-short/maqi1520.rematch-snippets.svg)
-[![Install](https://vsmarketplacebadge.apphb.com/installs/maqi1520.rematch-snippets.svg)](https://vsmarketplacebadge.apphb.com/installs-short/maqi1520.rematch-snippets.svg)
-[![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/maqi1520.rematch-snippets.svg)](https://vsmarketplacebadge.apphb.com/rating-short/maqi1520.rematch-snippets.svg)
+[![Version](https://vsmarketplacebadge.apphb.com/version/maqi1520.everest-fanyi.svg)](https://vsmarketplacebadge.apphb.com/version-short/maqi1520.everest-fanyi.svg)
+[![Install](https://vsmarketplacebadge.apphb.com/installs/maqi1520.everest-fanyi.svg)](https://vsmarketplacebadge.apphb.com/installs-short/maqi1520.everest-fanyi.svg)
+[![Ratings](https://vsmarketplacebadge.apphb.com/rating-short/maqi1520.everest-fanyi.svg)](https://vsmarketplacebadge.apphb.com/rating-short/maqi1520.everest-fanyi.svg)
 
 ---
 

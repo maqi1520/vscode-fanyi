@@ -4,6 +4,11 @@
   "description": "A translation tool based on youdao",
   "version": "0.0.1",
   "publisher": "maqi1520",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maqi1520/vscode-fanyi.git"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.28.0"
   },
@@ -13,6 +18,7 @@
   "activationEvents": [
     "onCommand:extension.everest.fanyi"
   ],
+  "icon": "icon.png",
   "main": "./extension",
   "contributes": {
     "commands": [
@@ -42,6 +48,7 @@
     "vscode": "^1.1.21"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
     "co-request": "^1.0.0",
     "json-stringify-pretty-compact": "^1.2.0",
     "query-string": "^6.2.0"
