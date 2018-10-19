@@ -1,0 +1,49 @@
+{
+  "name": "everest-fanyi",
+  "displayName": "everest-fanyi",
+  "description": "A translation tool based on youdao",
+  "version": "0.0.1",
+  "publisher": "maqi1520",
+  "engines": {
+    "vscode": "^1.28.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.everest.fanyi"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.everest.fanyi",
+        "title": "fanyi"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.everest.fanyi",
+        "key": "ctrl+t",
+        "mac": "cmd+t",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "eslint": "^4.11.0",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21"
+  },
+  "dependencies": {
+    "co-request": "^1.0.0",
+    "json-stringify-pretty-compact": "^1.2.0",
+    "query-string": "^6.2.0"
+  }
+}
