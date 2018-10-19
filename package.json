@@ -2,7 +2,7 @@
   "name": "everest-fanyi",
   "displayName": "everest-fanyi",
   "description": "A translation tool based on youdao",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "maqi1520",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "engines": {
-    "vscode": "^1.28.0"
+    "vscode": "^1.17.0"
   },
   "categories": [
     "Other"
