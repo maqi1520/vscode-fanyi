@@ -22,8 +22,11 @@ There you have either the option to show the already installed snippets or insta
 ### 翻译单词
 
 选中想要翻译的单词 按`cmd+t` (windows `control+t`)
+
 ![fanyi word](image/word.gif)
 
-### 翻译 everest local json 打开 json 进入编辑状态 按`cmd+t` (windows `control+t`)
+### 翻译 everest local json
+
+打开 json 进入编辑状态 按`cmd+t` (windows `control+t`)
 
 ![fanyi json](image/json.gif)
