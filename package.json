@@ -2,7 +2,7 @@
   "name": "everest-fanyi",
   "displayName": "everest-fanyi",
   "description": "A translation tool based on youdao",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "maqi1520",
   "repository": {
     "type": "git",
@@ -24,7 +24,7 @@
     "commands": [
       {
         "command": "extension.everest.fanyi",
-        "title": "fanyi"
+        "title": "翻译(everest-fanyi)"
       }
     ],
     "keybindings": [
@@ -34,7 +34,16 @@
         "mac": "cmd+t",
         "when": "editorTextFocus"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorTextFocus",
+          "command": "extension.everest.fanyi",
+          "group": "1_modification"
+        }
+      ]
+    }
   },
   "scripts": {
     "postinstall": "node ./node_modules/vscode/bin/install",
