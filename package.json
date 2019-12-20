@@ -2,7 +2,7 @@
   "name": "everest-fanyi",
   "displayName": "everest-fanyi",
   "description": "翻译everest-i18n 生成json文件",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "publisher": "maqi1520",
   "repository": {
     "type": "git",
@@ -18,7 +18,7 @@
   "activationEvents": [
     "onCommand:extension.everest.fanyi"
   ],
-  "icon": "icon.png",
+  "icon": "logo.png",
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
@@ -67,7 +67,25 @@
           "group": "1_modification"
         }
       ]
-    }
+    },
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "typescript",
+        "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets/snippets.json"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "yarn run compile",

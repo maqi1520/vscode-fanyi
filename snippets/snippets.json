@@ -1,0 +1,220 @@
+{
+  "useDidMount": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useDidMount",
+    "body": ["useDidMount(() => {", "\t${0}", "});"],
+    "description": "After the component mounted perform a function"
+  },
+  "useWillUnmount": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useWillUnmount",
+    "body": ["useWillUnmount(() => {", "\t${0:cleanup}", "});"],
+    "description": "The component before Unmount perform a function"
+  },
+  "useDidUpdate": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useDidUpdate",
+    "body": ["useDidUpdate(() => {", "\t${0:effect}", "}, [${1:input}]);"],
+    "description": "Perform a function when the component on update"
+  },
+  "useRequest": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useRequest",
+    "body": [
+      "const config = useMemo(() => {",
+      "\treturn {",
+      "\t\tmethod: '${1:method}',",
+      "\t\turl: '${2:url}',",
+      "\t};",
+      "}, []);",
+      "const { data = [], loading, error } = useRequest(config);",
+      "// 显示请求出错的视图",
+      "if (error) return <Empty type=\"loading\" />;",
+      ""
+    ],
+    "description": "The request data hooks"
+  },
+  "useRouter": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useRouter",
+    "body": ["const { history, location, match } = useRouter();", ""],
+    "description": "The hooks for router"
+  },
+  "useQueryString": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useQueryString",
+    "body": ["const [query, setQuery] = useQueryString();", ""],
+    "description": "The hooks for URL in the query string"
+  },
+  "useLocalStorage": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useLocalStorage",
+    "body": [
+      "const [value, setValue] = useLocalStorage(${0:key}, ${1:defaultValue});",
+      ""
+    ],
+    "description": "The hooks for localStorage"
+  },
+  "useSessionStorage": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useSessionStorage",
+    "body": [
+      "const [value, setValue] = useSessionStorage(${0:key}, ${1:defaultValue});",
+      ""
+    ],
+    "description": "The hooks for localStorage"
+  },
+  "useWindowSize": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useWindowSize",
+    "body": ["const [width, height] = useWindowSize();", ""],
+    "description": "The hooks for window innerWidth and innerHeight"
+  },
+  "usePagination": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "usePagination",
+    "body": [
+      "const pagination = usePagination();",
+      "const requestConfig = useMemo(",
+      "\t() => ({",
+      "\t\tmethod: '${1:method}',",
+      "\t\turl: '${2:url}',",
+      "\t\tparams: { page: pagination.current, limit: pagination.pageSize }",
+      "\t}),",
+      "\t[pagination]",
+      ");",
+      "const { data } = useRequest(requestConfig);",
+      "const list = data ? data.list : [];",
+      "const total = data ? data.total : 0;",
+      "return (",
+      "\t<Table",
+      "\t\tcolumns={columns}",
+      "\t\tdataSource={list}",
+      "\t\tpagination={{ ...pagination, total }}",
+      "\t/>",
+      ");"
+    ],
+    "description": "The hooks for request pagination"
+  },
+  "useInputSearch": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useInputSearch",
+    "body": [
+      "const [searchValue, inputSearchProps] = useInputSearch();",
+      "const config = useMemo(",
+      "\t() => ({ method: 'get', url: '/list', params: { keyword: searchValue } }),",
+      "\t[searchValue]",
+      ");",
+      "const { data, loading, error } = useRequest(config);",
+      "return (",
+      "\t<>",
+      "\t\t<div style={{ marginBottom: 16 }}>",
+      "\t\t\t<Input.Search",
+      "\t\t\t\t{...inputSearchProps}",
+      "\t\t\t\tallowClear",
+      "\t\t\t\tplaceholder=\"请输入关键字搜索\"",
+      "\t\t\t/>",
+      "\t\t</div>",
+      "\t\t{error ? (",
+      "\t\t\t<Empty type=\"loading\" />",
+      "\t\t) : (",
+      "\t\t\t<Table",
+      "\t\t\t\trowKey=\"id\"",
+      "\t\t\t\tloading={loading}",
+      "\t\t\t\tcolumns={columns}",
+      "\t\t\t\tdataSource={data}",
+      "\t\t\t\tpagination={false}",
+      "\t\t\t/>",
+      "\t\t)}",
+      "\t</>",
+      ");"
+    ],
+    "description": "The hooks for request InputSearch"
+  },
+  "useFormItemLayout": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useFormItemLayout",
+    "body": [
+      "const formItemLayout = useFormItemLayout(4, 18);",
+      "return (",
+      "\t<Form>",
+      "\t\t<Form.Item {...formItemLayout} label=\"\b邮箱\">",
+      "\t\t\t<Input />",
+      "\t\t</Form.Item>",
+      "\t\t<Form.Item {...formItemLayout} label=\"密码\">",
+      "\t\t\t<Input type=\"password\" />",
+      "\t\t</Form.Item>",
+      "\t\t<Form.Item {...formItemLayout} label=\"性别\">",
+      "\t\t\t<Select>",
+      "\t\t\t\t<Option value=\"male\">男</Option>",
+      "\t\t\t\t<Option value=\"female\">女</Option>",
+      "\t\t\t</Select>",
+      "\t\t</Form.Item>",
+      "\t</Form>",
+      ");"
+    ],
+    "description": "The hooks for request InputSearch"
+  },
+  "useDebounce": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useDebounce",
+    "body": [
+      "const [count, setCount] = useState(0);",
+      "const increment = useCallback(() => {",
+      "\tsetCount(count => ++count);",
+      "}, []);",
+      "const handleClick = useDebounce(increment, 1000);",
+      "return (",
+      "\t<>",
+      "\t\t<Button onClick={handleClick}>+1</Button>",
+      "\t\t{count}",
+      "\t</>",
+      ");"
+    ],
+    "description": "使用防抖函数。在一定的时间内，函数只执行最后一次"
+  },
+  "useThrottle": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useThrottle",
+    "body": [
+      "const [count, setCount] = useState(0);",
+      "const increment = useCallback(() => {",
+      "\tsetCount(count => ++count);",
+      "}, []);",
+      "const handleClick = useThrottle(increment, 1000);",
+      "return (",
+      "\t<>",
+      "\t\t<Button onClick={handleClick}>+1</Button>",
+      "\t\t{count}",
+      "\t</>",
+      ");"
+    ],
+    "description": "在一定的时间间隔内，函数最多只执行一次"
+  },
+  "useTween": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useTween",
+    "body": [
+      "const [start, cancel] = useTween(${0:fn}, ${1:duration}, 'linear');"
+    ],
+    "description": "使用 Tween 算法"
+  },
+  "useRaf": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useRaf",
+    "body": ["const [start, cancel] = useRaf(${0:fn}, ${1:duration});"],
+    "description": "使用 requestAnimationFrame"
+  },
+  "useTimeout": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useTimeout",
+    "body": ["const [set, clear] = useTimeout(fn, ${1:delay});"],
+    "description": "使用定时"
+  },
+  "useInterval": {
+    "scope": "javascript,typescript,javascriptreact,typescriptreact",
+    "prefix": "useInterval",
+    "body": ["const [set, clear] = useInterval(${0:fn}, ${1:duration});"],
+    "description": "间隔固定时间重复调用一个函数"
+  }
+}
