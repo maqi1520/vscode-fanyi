@@ -1,8 +1,8 @@
 {
   "name": "everest-fanyi",
   "displayName": "everest-fanyi",
-  "description": "A translation tool based on youdao",
-  "version": "0.0.3",
+  "description": "翻译everest-i18n 生成json文件",
+  "version": "0.0.4",
   "publisher": "maqi1520",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
     "onCommand:extension.everest.fanyi"
   ],
   "icon": "icon.png",
-  "main": "./extension",
+  "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
@@ -27,6 +27,30 @@
         "title": "翻译(everest-fanyi)"
       }
     ],
+    "configuration": {
+      "title": "Vscode everest fanyi",
+      "type": "object",
+      "properties": {
+        "vscodeEverestFanyi.youdaoApiname": {
+          "type": "string",
+          "description": "youdao apiname"
+        },
+        "vscodeEverestFanyi.youdaoApikey": {
+          "type": "string",
+          "description": "youdao apikey"
+        },
+        "vscodeEverestFanyi.translateZhCN": {
+          "description": "根据key翻译，拷贝key为中文",
+          "type": "boolean",
+          "default": false
+        },
+        "vscodeEverestFanyi.useGoogleAPI": {
+          "description": "使用googleAPI",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
     "keybindings": [
       {
         "command": "extension.everest.fanyi",
@@ -46,17 +70,21 @@
     }
   },
   "scripts": {
+    "vscode:prepublish": "yarn run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
     "postinstall": "node ./node_modules/vscode/bin/install",
-    "test": "node ./node_modules/vscode/bin/test"
+    "test": "yarn run compile && node ./node_modules/vscode/bin/test"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.42",
-    "@types/node": "^8.10.25",
-    "eslint": "^4.11.0",
-    "typescript": "^2.6.1",
-    "vscode": "^1.1.21"
+    "@types/node": "^10.12.21",
+    "tslint": "^5.12.1",
+    "typescript": "^3.3.1",
+    "vscode": "^1.1.28"
   },
   "dependencies": {
+    "@vitalets/google-translate-api": "^3.0.0",
     "chalk": "^2.4.1",
     "co-request": "^1.0.0",
     "json-stringify-pretty-compact": "^1.2.0",
