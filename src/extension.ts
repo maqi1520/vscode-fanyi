@@ -26,11 +26,26 @@ async function google(query: { q: string }): Promise<string | null> {
 }
 
 async function words(params: Iparams): Promise<string | null> {
-  const url = "http://fanyi.youdao.com/openapi.do";
+  const url = "http://fanyi.youdao.com/translate";
   try {
-    //http://fanyi.youdao.com/openapi.do?keyfrom=iamatestmanx&key=2137553564&type=data&doctype=json&version=1.1&q=%E4%B8%AD%E5%9B%BD
-    const { body } = await request(`${url}?${stringify(params)}`);
-    return JSON.parse(body).translation[0];
+    //http://fanyi.youdao.com/translate?smartresult=dict&smartresult=rule&sessionFrom=https://www.baidu.com/link&from=AUTO&to=AUTO&smartresult=dict&client=fanyideskweb&salt=1500092479607&sign=c98235a85b213d482b8e65f6b1065e26&doctype=json&version=2.1&keyfrom=fanyi.web&action=FY_BY_CL1CKBUTTON&typoResult=true&i=hello
+    let data = {
+      smartresult: "dict",
+      sessionFrom: "https://www.baidu.com/link",
+      from: "AUTO",
+      to: "AUTO",
+      client: "fanyideskweb",
+      salt: "1500092479607",
+      sign: "c98235a85b213d482b8e65f6b1065e26",
+      doctype: "json",
+      version: "2.1",
+      keyfrom: "fanyi.web",
+      action: "FY_BY_CL1CKBUTTON",
+      typoResult: "true",
+      i: params.q
+    };
+    const { body } = await request(`${url}?${stringify(data)}`);
+    return JSON.parse(body).translateResult[0][0]["tgt"];
   } catch (e) {
     console.log(e);
   }
