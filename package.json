@@ -3,6 +3,7 @@
   "displayName": "vscode-fanyi",
   "description": "",
   "version": "0.0.1",
+  "publisher": "maqi1520",
   "engines": {
     "vscode": "^1.62.0"
   },
