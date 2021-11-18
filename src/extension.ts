@@ -80,9 +80,11 @@ export function activate(context: vscode.ExtensionContext) {
         `#### 翻译 \n\n ${res.translation[0]} \n\n`
       );
       if (res.basic) {
-        markdownString.appendMarkdown(
-          `**美** ${res.basic["us-phonetic"]}　　　　**英** ${res.basic["uk-phonetic"]}　\n\n`
-        );
+        if (res.basic["us-phonetic"]) {
+          markdownString.appendMarkdown(
+            `**美** ${res.basic["us-phonetic"]}　　　　**英** ${res.basic["uk-phonetic"]}　\n\n`
+          );
+        }
 
         if (res.basic.explains) {
           res.basic.explains.forEach((w: string) => {
@@ -116,10 +118,10 @@ export function activate(context: vscode.ExtensionContext) {
 
       //有选中翻译选中的词
       if (text.length) {
-        const res = await youdao(text, appSecret, appSecret);
+        const res = await youdao(text, appKey, appSecret);
         console.log(res);
 
-        vscode.window.showInformationMessage(res.translation[0]);
+        //vscode.window.showInformationMessage(res.translation[0]);
         editor.edit((builder) => {
           builder.replace(selection, res.translation[0]);
         });
