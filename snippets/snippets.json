@@ -1,25 +1,25 @@
 {
   "useDidMount": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useDidMount",
+    "prefix": "!useDidMount",
     "body": ["useDidMount(() => {", "\t${0}", "});"],
     "description": "After the component mounted perform a function"
   },
   "useWillUnmount": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useWillUnmount",
+    "prefix": "!useWillUnmount",
     "body": ["useWillUnmount(() => {", "\t${0:cleanup}", "});"],
     "description": "The component before Unmount perform a function"
   },
   "useDidUpdate": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useDidUpdate",
+    "prefix": "!useDidUpdate",
     "body": ["useDidUpdate(() => {", "\t${0:effect}", "}, [${1:input}]);"],
     "description": "Perform a function when the component on update"
   },
   "useRequest": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useRequest",
+    "prefix": "!useRequest",
     "body": [
       "const config = useMemo(() => {",
       "\treturn {",
@@ -36,19 +36,19 @@
   },
   "useRouter": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useRouter",
+    "prefix": "!useRouter",
     "body": ["const { history, location, match } = useRouter();", ""],
     "description": "The hooks for router"
   },
   "useQueryString": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useQueryString",
+    "prefix": "!useQueryString",
     "body": ["const [query, setQuery] = useQueryString();", ""],
     "description": "The hooks for URL in the query string"
   },
   "useLocalStorage": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useLocalStorage",
+    "prefix": "!useLocalStorage",
     "body": [
       "const [value, setValue] = useLocalStorage(${0:key}, ${1:defaultValue});",
       ""
@@ -57,7 +57,7 @@
   },
   "useSessionStorage": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useSessionStorage",
+    "prefix": "!useSessionStorage",
     "body": [
       "const [value, setValue] = useSessionStorage(${0:key}, ${1:defaultValue});",
       ""
@@ -66,7 +66,7 @@
   },
   "useWindowSize": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useWindowSize",
+    "prefix": "!useWindowSize",
     "body": ["const [width, height] = useWindowSize();", ""],
     "description": "The hooks for window innerWidth and innerHeight"
   },
@@ -98,7 +98,7 @@
   },
   "useInputSearch": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useInputSearch",
+    "prefix": "!useInputSearch",
     "body": [
       "const [searchValue, inputSearchProps] = useInputSearch();",
       "const config = useMemo(",
@@ -133,7 +133,7 @@
   },
   "useFormItemLayout": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useFormItemLayout",
+    "prefix": "!useFormItemLayout",
     "body": [
       "const formItemLayout = useFormItemLayout(4, 18);",
       "return (",
@@ -157,7 +157,7 @@
   },
   "useDebounce": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useDebounce",
+    "prefix": "!useDebounce",
     "body": [
       "const [count, setCount] = useState(0);",
       "const increment = useCallback(() => {",
@@ -175,7 +175,7 @@
   },
   "useThrottle": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useThrottle",
+    "prefix": "!useThrottle",
     "body": [
       "const [count, setCount] = useState(0);",
       "const increment = useCallback(() => {",
@@ -193,7 +193,7 @@
   },
   "useTween": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useTween",
+    "prefix": "!useTween",
     "body": [
       "const [start, cancel] = useTween(${0:fn}, ${1:duration}, 'linear');"
     ],
@@ -201,19 +201,19 @@
   },
   "useRaf": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useRaf",
+    "prefix": "!useRaf",
     "body": ["const [start, cancel] = useRaf(${0:fn}, ${1:duration});"],
     "description": "使用 requestAnimationFrame"
   },
   "useTimeout": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useTimeout",
+    "prefix": "!useTimeout",
     "body": ["const [set, clear] = useTimeout(fn, ${1:delay});"],
     "description": "使用定时"
   },
   "useInterval": {
     "scope": "javascript,typescript,javascriptreact,typescriptreact",
-    "prefix": "useInterval",
+    "prefix": "!useInterval",
     "body": ["const [set, clear] = useInterval(${0:fn}, ${1:duration});"],
     "description": "间隔固定时间重复调用一个函数"
   }

@@ -42,7 +42,7 @@ async function words(params: Iparams): Promise<string | null> {
       keyfrom: "fanyi.web",
       action: "FY_BY_CL1CKBUTTON",
       typoResult: "true",
-      i: params.q
+      i: params.q,
     };
     const { body } = await request(`${url}?${stringify(data)}`);
     return JSON.parse(body).translateResult[0][0]["tgt"];
@@ -68,7 +68,7 @@ async function youdao(query: IQuery): Promise<string | null> {
     type: "data",
     doctype: "json",
     version: "1.1",
-    q
+    q,
   });
   console.log(chalk.yellow(`${q}:${result}`));
   return result;
@@ -80,7 +80,7 @@ function getProxyConfig(): Iconfig {
     apikey: config.get("youdaoApikey") || "2137553564",
     apiname: config.get("youdaoApiname") || "iamatestmanx",
     translateZhCN: config.get("translateZhCN") || false,
-    useGoogleAPI: config.get("useGoogleAPI") || false
+    useGoogleAPI: config.get("useGoogleAPI") || false,
   };
 }
 
@@ -105,7 +105,7 @@ function fanyiFile(fileText: string, translateZhCN: boolean) {
     );
   }
   return Promise.all(
-    data.map(async item => {
+    data.map(async (item) => {
       if (item[2] === null) {
         if (translateIndex === 0) {
           if (item[1] === null) {
@@ -114,7 +114,7 @@ function fanyiFile(fileText: string, translateZhCN: boolean) {
           item[2] = await trans({ q: item[0] });
         } else {
           item[2] = await trans({
-            q: item[translateIndex] as string
+            q: item[translateIndex] as string,
           });
         }
       }
@@ -139,7 +139,7 @@ export function activate(context: vscode.ExtensionContext) {
       //有选中翻译选中的词
       if (text.length) {
         const newWords = await trans({ q: text });
-        editor!.edit(builder => {
+        editor!.edit((builder) => {
           builder.replace(selection, newWords!);
         });
         //vscode.window.showInformationMessage("translate result: " + newWords);
@@ -154,12 +154,32 @@ export function activate(context: vscode.ExtensionContext) {
           new vscode.Position(0, 0),
           lastLine.range.end
         );
-        editor!.edit(editBuilder => {
+        editor!.edit((editBuilder) => {
           editBuilder.replace(range, newfile);
         });
       }
     }
   );
+
+  vscode.languages.registerHoverProvider("*", {
+    async provideHover(document, position, token) {
+      const editor = vscode.window.activeTextEditor;
+      if (!editor) {
+        return; // No open text editor
+      }
+
+      const selection = editor.selection;
+      const text = document.getText(selection);
+
+      const res = await trans({ q: text });
+
+      const markdownString = new vscode.MarkdownString();
+
+      markdownString.appendMarkdown(`#### 翻译 \n\n ${res} \n\n`);
+
+      return new vscode.Hover(markdownString);
+    },
+  });
 
   context.subscriptions.push(disposable);
 }

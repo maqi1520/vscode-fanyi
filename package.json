@@ -2,7 +2,7 @@
   "name": "everest-fanyi",
   "displayName": "everest-fanyi",
   "description": "翻译everest-i18n 生成json文件",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "publisher": "maqi1520",
   "repository": {
     "type": "git",
@@ -16,7 +16,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:extension.everest.fanyi"
+    "onStartupFinished"
   ],
   "icon": "logo.png",
   "main": "./out/extension.js",
