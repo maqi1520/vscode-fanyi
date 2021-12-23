@@ -44,7 +44,7 @@ async function words(params: Iparams): Promise<string | null> {
       typoResult: "true",
       i: params.q,
     };
-    const { body } = await request(`${url}?${stringify(data)}`);
+    const { body } = (await request(`${url}?${stringify(data)}`)) as any;
     return JSON.parse(body).translateResult[0][0]["tgt"];
   } catch (e) {
     console.log(e);
