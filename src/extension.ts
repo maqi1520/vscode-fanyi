@@ -170,6 +170,9 @@ export function activate(context: vscode.ExtensionContext) {
 
       const selection = editor.selection;
       const text = document.getText(selection);
+      if (!text) {
+        return;
+      }
 
       const res = await trans({ q: text });
 

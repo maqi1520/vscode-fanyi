@@ -2,7 +2,7 @@
   "name": "everest-fanyi",
   "displayName": "everest-fanyi",
   "description": "翻译everest-i18n 生成json文件",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "publisher": "maqi1520",
   "repository": {
     "type": "git",
